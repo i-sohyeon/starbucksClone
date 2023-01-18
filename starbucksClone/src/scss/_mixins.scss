@@ -1,0 +1,54 @@
+@mixin flexCenter()
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -ms-flex-align: center;
+}
+
+@mixin flexAllCenter()
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+@mixin btnNone ()
+{
+    border: 0;
+    background: none;
+}
+
+@mixin wordClear ()
+{
+    display: inline-block;
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin fontSize (
+  $fs: null,
+  $fw: null
+)
+{
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+@mixin clearBoth ()
+{
+    display: block;
+    clear: both;
+
+    content: '';
+}
