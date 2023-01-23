@@ -12,6 +12,9 @@ import sourcemaps from "gulp-sourcemaps";
 // const ts = require("gulp-typescript");
 
 // const tsProject = ts.createProject("tsconfig.json");
+const fileinclude = require('gulp-file-include');
+
+// import imagemin from 'gulp-imagemin';
 
 const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
@@ -20,7 +23,10 @@ const autoprefixer = require('gulp-autoprefixer');
 const routes = {
   pug: {
     watch: "src/**/*.pug",
-    src: "src/*.pug",
+    src: [
+      "src/*.pug",
+      "src/**/*.pug",
+      ],    
     dest: "build/"
   },
   img: {
@@ -43,6 +49,21 @@ const routes = {
   //   dest: 'build/js',
   // },
 };
+
+// gulp.task('fileinclude', function() {
+//   gulp.src([
+//     paths.production + '/*.pug',
+//     paths.production + '/*/*.pug',
+//     paths.production + '/*/*/*.pug',
+//     paths.production + '/*/*/*/*.pug',
+//     paths.production + '/*/*/*/*/*.pug'
+//   ])
+//     .pipe(fileinclude({
+//       prefix: '@@',
+//       basepath: '@file'
+//     }))
+//     .pipe(gulp.dest(routes.pug.dest));
+// });
 
 const pug = () =>
   gulp
@@ -67,6 +88,9 @@ const styles = () =>
     }))
 
     .pipe(gulp.dest(routes.scss.dest))
+
+
+    
 
 const webserver = () =>
    gulp
@@ -96,11 +120,12 @@ const watch = () => {
 //오류 생략
 // const img = () => 
 //   gulp.src(routes.img.src)
-//   .pipe(image())
+//   .pipe(imagemin())
 //   .pipe(gulp.dest(routes.img.dest));
 
+
 const assets = gulp.series([pug, styles, js]);
-const postDev = gulp.parallel([webserver, watch]);
+const postDev = gulp.parallel([webserver, watch, fileinclude]);
 //parallel 두가지 task를 병행할 수 있음
 
 export const dev = gulp.series([assets, postDev]);

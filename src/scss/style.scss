@@ -1,9 +1,16 @@
-@import "_common";
-@import "_mixins";
-@import "_reset";
-@import "_variables";
-@import "_icon"; 
-@import "_function";
+// commons
+@import '_common';
+@import '_mixins';
+@import '_reset';
+@import '_variables';
+@import '_icon'; 
+@import '_function';
+
 
 //components
-@import "components/header";
+@import 'components/button';
+
+// partials
+@import 'partials/header'
+
+

@@ -30,6 +30,8 @@
     "gulp-autoprefixer": "^8.0.0",
     "gulp-bro": "^2.0.0",
     "gulp-csso": "^4.0.1",
+    "gulp-file-include": "^2.3.0",
+    "gulp-imagemin": "^8.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-webserver": "^0.9.1",
     "sass": "^1.55.0"
